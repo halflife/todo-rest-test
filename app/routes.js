@@ -4,18 +4,22 @@ module.exports = function(app) {
 	// sample list
 	const todoList = [
 		{
+			id: 1,
 			text: "Buy Rinso",
 			done: false,
 		},
 		{
+			id: 2,
 			text: "Buy Milo",
 			done: true,
 		},
 		{
+			id: 3,
 			text: "Buy Sunlight",
 			done: true,
 		},
 		{
+			id: 4,
 			text: "Buy Anchor Butter",
 			done: false,
 		}
@@ -32,7 +36,7 @@ module.exports = function(app) {
 	// create todo and send back all todos after creation
 	app.post('/api/todos', function(req, res) {
 
-		const newTodoList = todoList.concat([{ text: req.body.text, done: false }]);
+		const newTodoList = todoList.concat([{ id: 1234, text: req.body.text, done: false }]);
 		res.json(newTodoList); // return all sample todos in JSON format
 
 	});
@@ -40,10 +44,8 @@ module.exports = function(app) {
 	// create todo and send back all todos after creation
 	app.patch('/api/todos/:todoId', function(req, res) {
 
-		console.log('editing todo' + req.params.todoId);
-
 		var todoDone = !!req.body.done;
-		const newTodoList = todoList.concat([{ text: req.body.text, done: todoDone }]);
+		const newTodoList = todoList.concat([{ id: req.params.todoId, text: req.body.text, done: todoDone }]);
 		res.json(newTodoList); // return all sample todos in JSON format
 
 	});
