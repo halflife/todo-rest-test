@@ -37,6 +37,16 @@ module.exports = function(app) {
 
 	});
 
+	// create todo and send back all todos after creation
+	app.patch('/api/todos/:todoId', function(req, res) {
+
+		let todoDone = !!req.body.done;
+
+		const newTodoList = todoList.concat([{ text: req.body.text, done: todoDone }]);
+		res.json(newTodoList); // return all sample todos in JSON format
+
+	});
+
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
