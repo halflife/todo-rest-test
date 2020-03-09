@@ -45,7 +45,7 @@ module.exports = function(app) {
 	app.patch('/api/todos/:todoId', function(req, res) {
 
 		var todoDone = !!req.body.done;
-		const newTodoList = todoList.concat([{ id: req.params.todoId, text: req.body.text, done: todoDone }]);
+		const newTodoList = todoList.concat([{ id: parseInt(req.params.todoId), text: req.body.text, done: todoDone }]);
 		res.json(newTodoList); // return all sample todos in JSON format
 
 	});
