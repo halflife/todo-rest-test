@@ -1,0 +1,10 @@
+{
+  "name": "Half Life Todo REST API Test",
+  "description": "A test for a Todo REST API",
+  "keywords": [
+    "halflife",
+    "test",
+    "rest",
+    "api"
+  ]
+}
