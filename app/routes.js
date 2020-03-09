@@ -40,8 +40,9 @@ module.exports = function(app) {
 	// create todo and send back all todos after creation
 	app.patch('/api/todos/:todoId', function(req, res) {
 
-		let todoDone = !!req.body.done;
+		console.log('editing todo' + req.params.todoId);
 
+		var todoDone = !!req.body.done;
 		const newTodoList = todoList.concat([{ text: req.body.text, done: todoDone }]);
 		res.json(newTodoList); // return all sample todos in JSON format
 
